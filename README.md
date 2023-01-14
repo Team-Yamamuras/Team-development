@@ -22,7 +22,7 @@ admin
 * 中野
 * 佐藤
 * 齋藤
-* poyonosk
+* poyonosk(https://github.com/poyonosk)
 
 # IDE
 * Ruby version
