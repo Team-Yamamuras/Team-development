@@ -12,7 +12,7 @@ DMM webcamp 2ヶ月目のチーム制作フェーズで作られたサイトで�
 ジャンル検索
 注文履歴の確認
 
-*admin
+* admin
 ジャンル登録・編集・非表示選択
 商品の登録・編集・削除・非表示選択
 注文履歴の確認・進捗ステータスの変更
@@ -27,23 +27,11 @@ member
 * [kyousuke678](https://github.com/kyousuke678)
 * [poyonosk](https://github.com/poyonosk)
 
-Copyright　2023 Yamamura & Co. 
-
 # IDE
 * ruby '3.1.2'
 
 * System dependencies
 
-* Configuration
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Copyright　2023 Yamamura & Co. 
