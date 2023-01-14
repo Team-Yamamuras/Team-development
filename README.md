@@ -3,7 +3,7 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-# 実装機能
+# Implement
 
 * user
 
@@ -18,8 +18,13 @@ admin
 注文履歴の確認・進捗ステータスの変更
 会員情報の確認・編集
 
-Things you may want to cover:
+# About "Yamamuras"
+* 中野
+* 佐藤
+* 齋藤
+* poyonosk
 
+# IDE
 * Ruby version
 
 * System dependencies
