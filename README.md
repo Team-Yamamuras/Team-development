@@ -19,10 +19,10 @@ admin
 会員情報の確認・編集
 
 # About "Yamamuras"
-* 中野
-* 佐藤
-* 齋藤
-* poyonosk(https://github.com/poyonosk)
+* [youyou1605](https://github.com/youyou1605)
+* [kokisato4483](https://github.com/kokisato4483)
+* [kyousuke678](https://github.com/kyousuke678)
+* [poyonosk](https://github.com/poyonosk)
 
 # IDE
 * Ruby version
