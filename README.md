@@ -3,9 +3,9 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-#実装機能
+# 実装機能
 
-user
+* user
 
 会員登録・編集・退会
 商品の閲覧・カートに入れる・注文
