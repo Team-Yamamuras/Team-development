@@ -1,7 +1,7 @@
 # ながのCAKE
-このサイトは、長野県にある小さな洋菓子店「ながのCAKE」の
-商品を通販するためにECサイト開発しました。
-DMM webcamp 2ヶ月目のチーム制作フェーズで作られたサイトです。
+このサイトは、長野県にある小さな洋菓子店「ながのCAKE」の<br>
+商品を通販するためにECサイト開発しました。<br>
+DMM webcamp 2ヶ月目のチーム制作フェーズで作られたサイトです。<br>
 (架空)
 
 # Implement
@@ -34,4 +34,4 @@ member
 
 
 
-### Copyright　2023 Yamamura & Co. 
+### Copyright2023 Yamamura & Co. 
