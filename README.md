@@ -1,4 +1,4 @@
-# README
+# ながの CAKE
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
@@ -19,13 +19,16 @@ admin
 会員情報の確認・編集
 
 # About "Yamamuras"
+"画面をハックしちゃうぐらいのサイトをつくる"というmissionを掲げてチーム開発がんばります　！
+
+member
 * [youyou1605](https://github.com/youyou1605)
 * [kokisato4483](https://github.com/kokisato4483)
 * [kyousuke678](https://github.com/kyousuke678)
 * [poyonosk](https://github.com/poyonosk)
 
 # IDE
-* Ruby version
+* ruby '3.1.2'
 
 * System dependencies
 
