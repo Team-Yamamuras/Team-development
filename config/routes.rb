@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  devise_for :users		
+  	
 
   root "homes#top"		
   get "/home/about" => "homes#about", as: "about"	
