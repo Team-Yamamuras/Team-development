@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'categories/index'
-    get 'categories/create'
-    get 'categories/edit'
-    get 'categories/update'
-  end
+  
   namespace :admin do
     resources :genres,only: [:index,:create,:edit,:update]
     resources :categories,only: [:index,:create,:edit,:update]
@@ -19,8 +14,6 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
-
-
 
   root "homes#top"
   get "/home/about" => "homes#about", as: "about"
