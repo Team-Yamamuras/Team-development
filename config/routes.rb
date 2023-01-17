@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
-  
+
+  namespace :public do
+    resources :items,only: [:index,:show]
+  end
+  namespace :admin do
+    resources :items,only: [:new,:index,:show,:edit,:update]
+  end
   namespace :admin do
     resources :categories,only: [:index,:create,:edit,:update]
   end
-  
+
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
