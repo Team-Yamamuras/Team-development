@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     resources :items,only: [:new,:index,:show,:edit,:update]
   end
   namespace :admin do
-    resources :genres,only: [:index,:create,:edit,:update]
     resources :categories,only: [:index,:create,:edit,:update]
   end
 
