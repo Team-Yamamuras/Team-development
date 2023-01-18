@@ -6,11 +6,12 @@
   </div>
 </div>
 
-<div class='container'>
-  <div class='row'>
-    <div class='mx-auto'>
+<div class="container my-5">
+  <div class="row">
+
+    <div class="offset-sm-3 col-sm-6">
       
-      <%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>
+      <%= form_with model: resource, url: session_path(resource), local: true do |f| %>
         <div class="field">
           <%= f.label :"メールアドレス" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "email" %>
