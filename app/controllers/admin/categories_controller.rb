@@ -26,7 +26,7 @@ class Admin::CategoriesController < ApplicationController
     @category.update(category_params)
     redirect_to admin_categories_path
   end
-  
+
   private
   #ストロングパラメータを設定することでデータを一時保持
   def category_params
