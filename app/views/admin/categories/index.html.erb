@@ -1,2 +1,42 @@
-<h1>Admin::Categories#index</h1>
-<p>Find me in app/views/admin/categories/index.html.erb</p>
+<div class="container">
+
+  <div class="row bg-light ">
+    <h3 class="bg-dark-subtle">ジャンル一覧追加</h3>
+  </div>
+
+<%# ジャンル追加機能　%>
+  <div class="row">
+    <table class="table col-sm-7 table-borderless">
+      <%= form_with model: Category.new, url: admin_categories_path, method: :post do |f| %>
+        <tr>
+          <th>
+            <th>ジャンル名</th>
+            <th><%= f.text_field :category %></th>
+                <th><%= f.submit '新規投稿', class: "btn btn-success" %><% end %></th>
+            </h6>
+          </th>
+        </tr>
+    </table>
+  </div>
+
+<%# ジャンル一覧編集機能　%>
+  <div class="row">
+    <table class="table table-light table-bordered">
+      <thead class="thead-light"></thead>
+        <tr>
+          <th>ジャンル</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+            <th><%= category.category %></th>
+            <th><%= link_to "編集する", edit_admin_category_path(category.id), class: "btn btn-success" %></th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>
