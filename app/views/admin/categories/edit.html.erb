@@ -1,2 +1,15 @@
-<h1>Admin::Categories#edit</h1>
-<p>Find me in app/views/admin/categories/edit.html.erb</p>
+<div class="container">
+  <h4 class="row bg-dark-subtle">
+    ジャンル編集
+  </h4>
+
+  <%= form_with model: @category, url: admin_category_path(@category.id), method: :patch do |f| %>
+    <table class="table table-borderless">
+      <tr>
+        <th>ジャンル名</th>
+        <th><%= f.text_field :category %></th>
+        <th><%= f.submit "変更を保存", class: "btn btn btn-success" %></th>
+      </tr>
+    </table>
+  <% end %>
+</div>
