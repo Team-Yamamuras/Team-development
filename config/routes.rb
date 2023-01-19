@@ -14,7 +14,14 @@ Rails.application.routes.draw do
   root "homes#top"
   get "/home/about" => "homes#about", as: "about"
   scope module: :public do
+    resources :orders, only: [:new, :create, :index, :show]
     resources :items,only: [:index,:show]
+    #マイページidを含まないルーティング
+    get 'customers/infomation/edit' => 'customers#edit'
+    patch 'customers' => 'customers#update'
+    get 'customers' => 'customers#show'
+    get 'customers/quit' => 'customers#quit'
+    patch 'customers/out' => 'customers#out'
   end
   #管理者側のルーティング設定
   namespace :admin do

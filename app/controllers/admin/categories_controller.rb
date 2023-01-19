@@ -1,6 +1,6 @@
 class Admin::CategoriesController < ApplicationController
   #管理者ログインの権限
-  #before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
     @category = Category.new
@@ -26,7 +26,7 @@ class Admin::CategoriesController < ApplicationController
     @category.update(category_params)
     redirect_to admin_categories_path
   end
-  
+
   private
   #ストロングパラメータを設定することでデータを一時保持
   def category_params
