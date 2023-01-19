@@ -8,11 +8,13 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
-  
+
   #会員側のルーティング設定
   root "homes#top"
   get "/home/about" => "homes#about", as: "about"
-  resources :items,only: [:index,:show]
+  scope module: :public do
+    resources :items,only: [:index,:show]
+  end
   #管理者側のルーティング設定
   namespace :admin do
     root 'homes#top'

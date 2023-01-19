@@ -1,7 +1,7 @@
 class Public::ItemsController < ApplicationController
   def index
       @categories = Category.where(is_enabled: true)
-    if params[category_id]
+    if params[:category_id]
       @category = Category.find(params[:category_id])
       @items = @category.items.order(created_at: :desc).where(is_active: true).page(params[:page]).per(8)
     else
