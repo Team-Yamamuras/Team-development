@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   root "homes#top"
   get "/home/about" => "homes#about", as: "about"
   scope module: :public do
+    resources :orders, only: [:new, :create, :index, :show]
     resources :items,only: [:index,:show]
     #マイページidを含まないルーティング
     get 'customers/infomation/edit' => 'customers#edit'
