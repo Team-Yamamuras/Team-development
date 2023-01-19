@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   root "homes#top"
   get "/home/about" => "homes#about", as: "about"
   resources :items,only: [:index,:show]
-  #会員側マイページ
+  会員側マイページ
   get 'customers/infomation/edit' => 'customers#edit'
   patch 'customers' => 'customers#update'
   get 'customers' => 'customers#show'
