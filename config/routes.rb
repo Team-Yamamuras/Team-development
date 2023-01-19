@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     patch 'customers/out' => 'customers#out'
   end
   #管理者側のルーティング設定
-    namespace :admin do
+  namespace :admin do
     root 'homes#top'
     resources :items,only: [:new,:index,:show,:edit,:update]
     resources :categories,only: [:index,:create,:edit,:update]
