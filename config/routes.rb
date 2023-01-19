@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   root "homes#top"
   get "/home/about" => "homes#about", as: "about"
   scope module: :public do
-    resources :items,only: [:index,:show]
+    resources :items, only: [:index,:show]
+    resources :orders, only: [:new, :create, :index, :show]
   end
   #管理者側のルーティング設定
   namespace :admin do
