@@ -13,15 +13,19 @@ Rails.application.routes.draw do
   root "homes#top"
   get "/home/about" => "homes#about", as: "about"
   resources :items,only: [:index,:show]
-  会員側マイページ
-  get 'customers/infomation/edit' => 'customers#edit'
-  patch 'customers' => 'customers#update'
-  get 'customers' => 'customers#show'
-  get 'customers/quit' => 'customers#quit'
-  patch 'customers/out' => 'customers#out'
+  #会員側マイページのidを含まないルーティング設定
+  scope module: :public do
+    get 'customers/infomation/edit' => 'customers#edit'
+    get 'customers' => 'customers#show'
+    patch 'customers' => 'customers#update'
+    get 'customers/quit' => 'customers#quit'
+    patch 'customers/out' => 'customers#out'
+  end
+  
+
 
   #管理者側のルーティング設定
-  namespace :admin do
+    namespace :admin do
     root 'homes#top'
     resources :items,only: [:new,:index,:show,:edit,:update]
     resources :categories,only: [:index,:create,:edit,:update]
