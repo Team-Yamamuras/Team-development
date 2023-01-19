@@ -12,18 +12,9 @@ Rails.application.routes.draw do
   #会員側のルーティング設定
   root "homes#top"
   get "/home/about" => "homes#about", as: "about"
-  resources :items,only: [:index,:show]
-  #会員側マイページのidを含まないルーティング設定
   scope module: :public do
-    get 'customers/infomation/edit' => 'customers#edit'
-    get 'customers' => 'customers#show'
-    patch 'customers' => 'customers#update'
-    get 'customers/quit' => 'customers#quit'
-    patch 'customers/out' => 'customers#out'
+    resources :items,only: [:index,:show]
   end
-  
-
-
   #管理者側のルーティング設定
     namespace :admin do
     root 'homes#top'
