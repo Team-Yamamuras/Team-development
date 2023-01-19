@@ -12,13 +12,13 @@
   </head>
 
   <body>
+    <p id="notice"><%= notice %></p>
     <% if request.fullpath.include? "/admin" %>
       <%= render 'layouts/admin_header' %>
     <% else %>
       <%= render 'layouts/customers_header' %>
     <% end %>
     <main>
-      <p id="notice"><%= notice %></p>
       <%= yield %>
     </main>
     <%= render 'layouts/footer' %>
