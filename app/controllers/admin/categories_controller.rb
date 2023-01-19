@@ -1,6 +1,6 @@
 class Admin::CategoriesController < ApplicationController
   #管理者ログインの権限
-  #before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
     @category = Category.new
