@@ -12,14 +12,14 @@
 
       <div class="row form-group">
         <div class="col-sm-3 offset-1">名前</div>
-          <div class="col-sm-8"><%= f.label :first_name,"（姓）" %><%= f.text_field :first_name, placeholder:"令和" %>
-          <%= f.label :last_name,"（名）" %><%= f.text_field :last_name, placeholder:"道子" %></div>
+          <div class="col-sm-8"><%= f.label :first_name,"（姓）" %><%= f.text_field :first_name, placeholder:"山村" %>
+          <%= f.label :last_name,"（名）" %><%= f.text_field :last_name, placeholder:"貞子" %></div>
       </div>
 
       <div class="row form-group">
         <div class="col-sm-3 offset-1">フリガナ</div>
-        <div class="col-sm-8"><%= f.label :first_name_kana,"（セイ）" %><%= f.text_field :first_name_kana, placeholder:"レイワ" %>
-          <%= f.label :last_name_kana,"（メイ）" %><%= f.text_field :last_name_kana, placeholder:"ミチコ" %></div>
+        <div class="col-sm-8"><%= f.label :first_name_kana,"（セイ）" %><%= f.text_field :first_name_kana, placeholder:"ヤマムラ" %>
+          <%= f.label :last_name_kana,"（メイ）" %><%= f.text_field :last_name_kana, placeholder:"サダコ" %></div>
       </div>
 
       <div class="row form-group">
@@ -31,7 +31,7 @@
         <div class="col-sm-3 offset-1">郵便番号（ハイフンなし）</div>
         <div class="col-sm-8"><%= f.text_field :zip_code, placeholder:"0000000", size: 30 %></div>
       </div>
-      
+
       <div class="row form-group">
         <div class="col-sm-3 offset-1">住所</div>
         <div class="col-sm-8"><%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0", size: 60 %></div>
@@ -41,12 +41,12 @@
         <div class="col-sm-3 offset-1">電話番号（ハイフンなし）</div>
         <div class="col-sm-8"><%= f.text_field :phone_number, placeholder:"00000000000", size: 30 %></div>
       </div>
-      
+
       <div class="row form-group">
         <div class="col-sm-3 offset-1">パスワード（６文字以上）</div>
         <div class="col-sm-8"><%= f.password_field :password, autocomplete: "new-password", size: 30 %></div>
       </div>
-      
+
       <div class="row form-group">
         <div class="col-sm-3 offset-1">パスワード（確認用）</div>
         <div class="col-sm-8"><%= f.password_field :password_confirmation, autocomplete: "new-password", size: 30 %></div>
@@ -55,7 +55,7 @@
       <div class="row">
         <%= f.submit "新規登録", class: "btn btn-lg btn-danger mx-auto" %>
       </div>
-      
+
     <div class="offset-2">
       <h4 class="red-border px-3">既に登録済みの方</h4>
     </div>
