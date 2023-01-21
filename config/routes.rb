@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   #会員側のルーティング設定
   root "homes#top"
   get "/home/about" => "homes#about", as: "about"
+  
   scope module: :public do
     resources :orders, only: [:new, :create, :index, :show]
     resources :items,only: [:index,:show]
