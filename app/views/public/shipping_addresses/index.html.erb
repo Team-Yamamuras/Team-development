@@ -1,0 +1,52 @@
+<div class="offset-2">
+  
+  <div class="row mt-4">
+    <mark class="h4 table-secondary">配送先登録/一覧</mark>
+  </div>
+  
+  <div class="row">
+    <%= form_with model: @shipping_address, url: shipping_addresses_path, method: :post do |f| %>
+      <table class="table table-borderless">
+        <tr>
+          <td>郵便番号(ハイフンなし)</td>
+          <td><%= f.text_field :zip_code, placeholder: "00000000" %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= f.text_field :address,  size: "40*40", placeholder: "東京都渋谷区代々木神園町０−０" %> </td>
+        </tr>
+        <tr>
+          <td>宛名</td>
+          <td><%= f.text_field :name,  placeholder: "令和道子"  %></td>
+          <td><%= f.submit '新規登録', class: "btn btn-success" %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="table-secondary">郵便番号</th>
+        <th class="table-secondary">住所</th>
+        <th class="table-secondary">宛名</th>
+      <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shipping_addresses.each do |t| %>
+        <tr>
+          <td><%= t.zip_code %></td>
+          <td><%= t.address %></td>
+          <td><%= t.name %></td>
+          <td>
+            <%#<%= link_to "編集する", edit_address_path(t.id), class: "btn btn-success mt-2" %>
+            <%#<%= link_to "削除する", address_path(t.id), class: "btn btn-danger mt-2", method: :delete %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+       
+</div>
+  
