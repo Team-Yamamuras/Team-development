@@ -16,9 +16,10 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :orders, only: [:new, :create, :index, :show]
     resources :items,only: [:index,:show]
+    resources :shipping_addresses,only: [:index, :edit, :create, :update, :destroy]
     #マイページidを含まないルーティング
     get 'customers/infomation/edit' => 'customers#edit'
-    patch 'customers' => 'customers#update'
+    patch 'customers/infomation' => 'customers#update'
     get 'customers' => 'customers#show'
     get 'customers/quit' => 'customers#quit'
     patch 'customers/out' => 'customers#out'
