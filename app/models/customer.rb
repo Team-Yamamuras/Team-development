@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
   has_many :shipping_address, dependent: :destroy
   has_many :cart_items, dependent: :destroy
   
+  #マイページ編集バリデーション
   #validates :first_name, :last_name, :kana_first_name, :kana_last_name,:zip_code, :address, :phone_number, presence: true
   #validates :kana_first_name, :kana_last_name,format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: "カタカナで入力して下さい。"}
             

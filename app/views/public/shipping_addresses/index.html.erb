@@ -1,4 +1,5 @@
 <div class="offset-2">
+  
   <div class="row mt-4">
     <mark class="h4 table-secondary">配送先登録/一覧</mark>
   </div>
@@ -22,6 +23,30 @@
       </table>
     <% end %>
   </div>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="table-secondary">郵便番号</th>
+        <th class="table-secondary">住所</th>
+        <th class="table-secondary">宛名</th>
+      <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shipping_addresses.each do |t| %>
+        <tr>
+          <td><%= t.zip_code %></td>
+          <td><%= t.address %></td>
+          <td><%= t.name %></td>
+          <td>
+            <%#<%= link_to "編集する", edit_address_path(t.id), class: "btn btn-success mt-2" %>
+            <%#<%= link_to "削除する", address_path(t.id), class: "btn btn-danger mt-2", method: :delete %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
        
 </div>
   
