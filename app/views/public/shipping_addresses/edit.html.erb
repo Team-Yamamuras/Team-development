@@ -4,5 +4,24 @@
     <mark class="h4 table-secondary">配送先編集</mark>
   </div>
   
+  <div class="row">
+    <%= form_with model: @shipping_address, url: shipping_address_path, method: :patch do |f| %>
+      <table class="table table-borderless">
+        <tr>
+          <td>郵便番号(ハイフンなし)</td>
+          <td><%= f.text_field :zip_code, autocomplete: "zip_code" %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= f.text_field :address,  size: "40*40", autocomplete: "address" %> </td>
+        </tr>
+        <tr>
+          <td>宛名</td>
+          <td><%= f.text_field :name,  autocomplete: "name"  %></td>
+          <td><%= f.submit '変更内容を保存', class: "btn btn-success" %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
   
 </div>
