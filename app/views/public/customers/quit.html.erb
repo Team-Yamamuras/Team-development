@@ -12,4 +12,15 @@
       退会する場合は、「退会する」をクリックしてください。<br>
     </div>
   </div>
+  
+    <div class="row">
+    <div class="col text-center mt-4">
+      <%= link_to customers_path, class: 'nav-link' do %>
+        <button type="button" class="btn btn-primary">退会しない</button>
+      <% end %>
+    </div>
+    <div class="col text-center mt-4">
+      <%= link_to "退会する", customers_out_path, method: :patch, class: "btn btn-danger" %>
+    </div>
+  </div>
 </div>
