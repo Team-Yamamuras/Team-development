@@ -7,10 +7,10 @@ class Customer < ApplicationRecord
   
   devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :validatable
-         
+
   has_many :shipping_address, dependent: :destroy
   has_many :cart_items, dependent: :destroy
-  
+
   #マイページ編集バリデーション
   validates :first_name, :last_name, :first_name_kana, :last_name_kana,:zip_code, :address, :phone_number, presence: true
   validates :first_name_kana, :last_name_kana,format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: "カタカナで入力して下さい。"}
