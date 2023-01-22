@@ -11,7 +11,7 @@ class Public::CustomersController < ApplicationController
 
   def update
     @customer = current_customer
-    if @current_customer.update(customer_params)
+    if @customer.update(customer_params)
        redirect_to customers_path
     else
        render :edit and return
@@ -19,6 +19,11 @@ class Public::CustomersController < ApplicationController
   end
 
   def out
+    @customer = current_customer
+    @customer.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理に成功しました"
+    redirect_to root_path
   end
 
   def quit

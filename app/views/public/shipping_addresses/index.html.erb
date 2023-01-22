@@ -30,7 +30,7 @@
         <th class="table-secondary">郵便番号</th>
         <th class="table-secondary">住所</th>
         <th class="table-secondary">宛名</th>
-      <th></th>
+        <th class="table-secondary"></th>
       </tr>
     </thead>
     <tbody>
@@ -40,8 +40,8 @@
           <td><%= t.address %></td>
           <td><%= t.name %></td>
           <td>
-            <%#<%= link_to "編集する", edit_address_path(t.id), class: "btn btn-success mt-2" %>
-            <%#<%= link_to "削除する", address_path(t.id), class: "btn btn-danger mt-2", method: :delete %>
+          <%= link_to "編集する",  edit_shipping_address_path(t.id), class: "btn btn-success" %>
+          <%= link_to "削除する", shipping_address_path(t.id), class: "btn btn-danger", method: :delete %>
           </td>
         </tr>
     <% end %>
