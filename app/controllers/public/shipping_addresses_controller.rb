@@ -13,7 +13,6 @@ class Public::ShippingAddressesController < ApplicationController
     @shipping_address.customer_id = current_customer.id
     if @shipping_address.save
       redirect_to shipping_addresses_path
-
     else
        render :index and return
     end
