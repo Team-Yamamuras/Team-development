@@ -29,10 +29,6 @@ class Public::ShippingAddressesController < ApplicationController
     @shipping_address.destroy
     redirect_to shipping_addresses_path
   end
-  
-  def address_display
-    '〒' + zip_code + ' ' + address + ' ' + last_name
-  end
 
    private
   def shipping_address_params
