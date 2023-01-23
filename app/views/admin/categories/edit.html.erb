@@ -1,7 +1,7 @@
 <div class="container">
-  <h4 class="row bg-dark-subtle">
-    ジャンル編集
-  </h4>
+  <div class="row mt-4">
+    <mark class="h4 table-secondary">ジャンル</mark>
+  </div>
 
   <%= form_with model: @category, url: admin_category_path(@category.id), method: :patch do |f| %>
     <table class="table table-borderless">
