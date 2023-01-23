@@ -1,14 +1,14 @@
 class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
-    #@shipping_addresses = current_customer.ship_addresses
+    @shipping_addresses = current_customer.shipping_address
   end
-  
+
   def confirm
     @order = Order.new
     #@cart_items = current_customer.cart_items
   end
-  
+
   def complete
   end
 
