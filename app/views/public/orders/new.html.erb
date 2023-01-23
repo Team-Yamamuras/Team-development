@@ -1,6 +1,6 @@
 <h1>注文情報入力</h1>
 <div class="container my-5">
-    
+
   <div class="row mt-5">
     <div class="offset-2 col-5">
 
@@ -18,31 +18,50 @@
           <%= f.label :payment_transfer, Order.payments_i18n[:transfer] %>
         </div>
       <% end %>
-    
-    <!-- お届け先選択 -->  
+
+    <!-- お届け先選択 -->
       <div class="row mt-3">
         <strong class="red-border px-3">お届け先</strong>
       </div>
-      
+
       <%= form_with model: @order, local:true do |f| %>
         <div class="form-check mt-3">
-          <%= f.radio_button :payment, Order.payments.key(0) %>
-          配送先モデルできたらやる ご自身の住所
-          <br>
-          <%= f.radio_button :payment, Order.payments.key(1) %>
-          登録済み住所から選ぶ
-          <!-- %= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) % -->
-          <br>
-          <%= f.radio_button :payment, Order.payments.key(2) %>
-          新しいお届け先
+          <div>
+            <%= f.radio_button :payment, Order.payments.key(0) %>
+            <%= f.label :ご自身の住所 %><br>
+            <%= "〒#{current_customer.zip_code}" %><br>
+            <%= "#{current_customer.address}" %><br>
+            <%= "#{current_customer.last_name}" + "#{current_customer.first_name}" %>
+          </div>
+          <div>
+            <%= f.radio_button :payment, Order.payments.key(1) %>
+            <%= f.label :登録済み住所から選ぶ %><br>
+            <%= f.select :address_id, options_from_collection_for_select(ShippingAddress.all, :id, :address_display) %>
+          </div>
+          <div>
+            <%= f.radio_button :payment, Order.payments.key(2) %>
+            <%= f.label :新しいお届け先 %><br>
+            <div class="col-xs-12 form_group">
+              <%= f.label :"郵便番号(ハイフンなし)", class:"col-sm-7 form-control-static" %>
+              <%= f.text_field :zip_code, class:"col-sm-4 form-control-static", placeholder:"0000000", :size =>"50" %>
+            </div>
+            <div class="col-xs-12 form_group my-3">
+              <%= f.label :"住所", class:"col-sm-3 form-control-static"%>
+              <%= f.text_field :address, class:"col-sm-8 form-control-static", placeholder:"東京都渋谷区代々木神園町0-0", :size =>"100" %>
+            </div>
+            <div class="col-xs-12 form_group　my-3">
+              <%= f.label :"宛名", class:"col-sm-3 form-control-static"%>
+              <%= f.text_field :name, class:"col-sm-4 form-control-static", placeholder:"山村貞子", :size =>"100"%>
+            </div>
+          </div>
         </div>
       <% end %>
-      
+
       <%= form_with model: @order, local:true do |f| %>
         <div class="row mt-3">
           <%= f.submit "確認画面へ進む", class: "btn btn-sm btn-primary ml-auto" %>
         </div>
-      <% end %> 
+      <% end %>
     </div>
   </div>
 </div>
