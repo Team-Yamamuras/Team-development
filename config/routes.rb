@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   #会員側のルーティング設定
   root "homes#top"
   get "/home/about" => "homes#about", as: "about"
-  
+
   scope module: :public do
     post "/orders/confirm" => "orders#confirm", as: "orders_confirm" #購入確認画面への遷移
     get "/orders/complete" => "orders#complete", as: "orders_complete" #購入完了お礼メッセ画面への遷移
