@@ -42,5 +42,56 @@
       <% end %>
   </table>
 
-  
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価（税込）</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>製作ステータス</th>
+          </tr>
+        </thead>
+          <% @ordered_items.each do |t| %>
+          <%# @total += (order_detail.price * order_detail.amount*1.1).floor %>
+        <tbody>
+          <tr>
+            <th><%= t.item.name %></th>
+            <th><%= t.item.price__tax_included %></th>
+            <th><%= t.count %></th>
+            <th>¥<%= price_tax_included.to_s(:delimited) %></td>
+            <th>
+            <%= form_with model: order_items, url: admin_path(order_detail), method: :patch do |f| %>
+            <%= f.select :status, OrderItems.keys, class: "status"  %>
+            <%= f.submit "更新", class: "btn btn-success" %>
+            </th>
+          </tr>
+        </tbody>
+        <% end %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+
+
+    <div class="col-5">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th><strong>商品合計</strong><%= "  " + "  " %><%= @total %>円</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><strong>送料</strong><%= "  " + "  " %><%= @shopping_cost %>円</th>
+          </tr>
+          <tr>
+            <th><strong>請求金額合計</strong><%= "  " + "  " %><%= @total + @shopping_cost %>円</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
 </div>

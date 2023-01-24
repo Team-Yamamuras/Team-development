@@ -44,9 +44,16 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders
+    @shopping_cost = 800
+    @total = 0
   end
 
   def show
+    @order = Order.find(params[:id])
+    @orders = @order.order_items
+    @shopping_cost = 800
+    @total = 0
   end
   
   private
