@@ -1,1 +1,45 @@
-inde
+<div class="offset-2">
+  
+  <div class="row mt-4">
+    <mark class="h4 table-secondary">注文履歴一覧</mark>
+  </div>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="table-secondary">注文日</th>
+        <th class="table-secondary">配送先</th>
+        <th class="table-secondary">注文商品</th>
+        <th class="table-secondary">支払金額</th>
+        <th class="table-secondary">ステータス</th>
+        <th class="table-secondary">注文詳細</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order.each do |t| %>
+        <tr>
+          <td><%= t.created_at.strftime('%Y/%m/%d') %></td>
+          <td>
+            〒<%= t.zip_code %><br>
+            <%= t.address %>
+          </td>
+          <td><%= t.count %></td>
+          <td></td>
+          <td></td>
+          <td><%= t.status %></td>
+          <td>
+            <%= link_to order_path(t.id) do %>
+              <%= t.created_at %>
+            <% end %>
+          </td>
+          <td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <div class="row">
+    <%= paginate @customers %>
+  </div>
+  
+</div>

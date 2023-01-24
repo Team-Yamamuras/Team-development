@@ -22,7 +22,7 @@
             <% end %>
           </td>
           <td><%= t.name %></td>
-          <td><%= t.count %></td>
+          <td><%= t.ordered_items.count %></td>
           <td><%= t.email %></td>
           <td><%= t.status %></td>
         </tr>
@@ -30,8 +30,5 @@
     </tbody>
   </table>
   
-  <div class="row">
-    <%= paginate @customers %>
-  </div>
   
 </div>
