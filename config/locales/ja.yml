@@ -1,5 +1,11 @@
 ja:
   enums:
+    ordered_item:
+      status:
+        impossible_manufacture: "着手不可"
+        waiting_manufacture: "製作待ち"
+        manufacturing: "製作中"
+        finish: "製作完了"
     order:
       payment:
         credit_card: "クレジットカード"
@@ -157,7 +163,7 @@ ja:
       not_locked: は凍結されていません。
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
-        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"        
+        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
   date:
     abbr_day_names:
     - 日
@@ -355,4 +361,4 @@ ja:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
-    pm: 午後  
+    pm: 午後

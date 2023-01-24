@@ -1,0 +1,34 @@
+<div class="offset-2">
+  
+  <div class="row mt-4">
+    <mark class="h4 table-secondary">注文履歴一覧</mark>
+  </div>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="table-secondary">購入日時</th>
+        <th class="table-secondary">購入者</th>
+        <th class="table-secondary">注文個数</th>
+        <th class="table-secondary">注文ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |t| %>
+        <tr>
+          <td>
+            <%= link_to admin_order_path(t.id) do %>
+              <%= t.created_at %>
+            <% end %>
+          </td>
+          <td><%= t.name %></td>
+          <td><%= t.ordered_items.count %></td>
+          <td><%= t.email %></td>
+          <td><%= t.status %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  
+</div>
