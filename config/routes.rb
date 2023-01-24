@@ -15,9 +15,6 @@ Rails.application.routes.draw do
   get "/home/about" => "homes#about", as: "about"
   
   scope module: :public do
-    resources :orders, only: [:new, :create, :index, :show]
-    resources :items,only: [:index,:show]
-    resources :shipping_addresses,only: [:index, :edit, :create, :update, :destroy]
     post "/orders/confirm" => "orders#confirm", as: "orders_confirm" #購入確認画面への遷移
     get "/orders/complete" => "orders#complete", as: "orders_complete" #購入完了お礼メッセ画面への遷移
     #マイページidを含まないルーティング
@@ -27,6 +24,9 @@ Rails.application.routes.draw do
     get 'customers' => 'customers#show'
     get 'customers/quit' => 'customers#quit'
     patch 'customers/out' => 'customers#out'
+    resources :orders, only: [:new, :create, :index, :show]
+    resources :items,only: [:index,:show]
+    resources :shipping_addresses,only: [:index, :edit, :create, :update, :destroy]
   end
   #管理者側のルーティング設定
   namespace :admin do

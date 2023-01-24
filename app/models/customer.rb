@@ -10,6 +10,7 @@ class Customer < ApplicationRecord
 
   has_many :shipping_address, dependent: :destroy
   has_many :cart_items, dependent: :destroy
+  has_many :orders
 
   #マイページ編集バリデーション
   validates :first_name, :last_name, :first_name_kana, :last_name_kana,:zip_code, :address, :phone_number, presence: true

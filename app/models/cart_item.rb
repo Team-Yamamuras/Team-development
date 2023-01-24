@@ -1,9 +1,8 @@
 class CartItem < ApplicationRecord
-  validates :quantity, presence: true
-  
+
   belongs_to :customer
   belongs_to :item
-  
+
   def validate_into_cart
       cart_items = self.customer.cart_items
       if (quantity) == nil
