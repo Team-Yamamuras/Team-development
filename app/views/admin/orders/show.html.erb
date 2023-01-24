@@ -4,31 +4,43 @@
     <mark class="h4 table-secondary">注文履歴詳細</mark>
   </div>
   
-  <table class="table table-bordered">
+  <table class="table table-borderless">
     <thead>
-      <tr>
-        <th class="table-secondary">購入日時</th>
-        <th class="table-secondary">購入者</th>
-        <th class="table-secondary">注文個数</th>
-        <th class="table-secondary">注文ステータス</th>
-      </tr>
+        <tr>
+          <th><strong>購入者</strong></th>
+          <th>
+          <%= link_to admin_customer_path(@customer) do %>
+          <%= @customer.first_name %><%= @customer.last_name %>
+          <% end %>
+          </th>
+        </tr>
     </thead>
     <tbody>
-      <% @orders.each do |t| %>
         <tr>
+          <th><strong>注文日</strong></th>
+          <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <th><strong>配送先</strong></th>
+          <td><%= @order.address %></td>
+        </tr>
+        <tr>
+          <th><strong>支払方法</strong></th>
+          <td><%= @order.payment %></td>
+
+        </tr>
+        <tr>
+          <th><strong>注文ステータス</strong></th>
           <td>
-            <%= link_to admin_order_path(t.id) do %>
-              <%= t.created_at %>
+            <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
+            <%= f.select :status, Order.keys, class: "status" %>
+            <%= f.submit "更新", class: "btn btn-success" %>
             <% end %>
           </td>
-          <td><%= t.name %></td>
-          <td><%= t.ordered_items.count %></td>
-          <td><%= t.email %></td>
-          <td><%= t.status %></td>
         </tr>
-      <% end %>
     </tbody>
+      <% end %>
   </table>
-  
+
   
 </div>
