@@ -7,13 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create(email: "yamamura@gmail.com", password: "sadako")
 
-5.times do |n|
-Item.create(
-  category_id: 1,
-  name: "アイスクリーム#{n}",
-  introduction: "テスト",
-  price_without_tax: 200,
-  is_active: true,
-  image: ActiveStorage::Blob.create_and_upload!(io: File.open(File.join(Rails.root,"app/assets/images/no_image.jpg")), filename:"no_image.jpg")
-  )
+Category.create(category: "test")
+
+10.times do |n|
+    Item.create(
+        category_id: 1,
+        name: "アイスクリーム#{n}",
+        introduction: "テスト",
+        price_without_tax: 200,
+        is_active: true,
+        image: ActiveStorage::Blob.create_and_upload!(io: File.open(File.join(Rails.root,"app/assets/images/no_image.jpg")), filename:"no_image.jpg")
+    )
 end
+
