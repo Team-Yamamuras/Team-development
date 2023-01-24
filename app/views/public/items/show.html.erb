@@ -7,7 +7,7 @@
   <div class="row">
 
 	 <div class="col-5">
-   
+    <%#= attachment_image_tag @item, :image, size: '50x50', format: "jpeg", fallback: 'noimage.jpg', size: '300x300', class: "rounded" %>
 	 </div>
 
    <div class="col-5">
@@ -30,9 +30,9 @@
       <div class="offset-6">
         <div class="row">
           <%= form_for (@cart_item) do |f| %>
-            <%= f.number_field :quantity, min:1, placeholder: "個数選択" %><span>個</span>
-            <%= f.hidden_field :item_id, :value => @item.id %>
-            <%= f.submit "カートに入れる", class: "btn btn-outline-danger" %>
+              <%= f.hidden_field :item_id, :value => @item.id %>
+              <%= f.select :count, *[1..10] %>
+              <%= f.submit "カートに入れる", class: "btn btn-success" %>
       　　<% end %>
         </div>
 

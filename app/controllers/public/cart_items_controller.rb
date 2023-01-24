@@ -1,4 +1,4 @@
-class CartItemsController < ApplicationController
+class Public::CartItemsController < ApplicationController
   before_action :authenticate_customer!
 
   def index
@@ -9,7 +9,7 @@ class CartItemsController < ApplicationController
   def create
    @cart_item = CartItem.new(cart_item_params)
    @cart_item.customer_id = current_customer.id
-     @cart_item.save
+   @cart_item.save
      redirect_to cart_items_path
   end
 
@@ -32,14 +32,15 @@ class CartItemsController < ApplicationController
 
   private
   def cart_item_params
-   params.require(:cart_item).permit(:customer_id, :item_id, :quantity)
+   params.require(:cart_item).permit(:customer_id, :item_id, :count)
   end
 
   def calculate(user)
     total_price = 0
     user.cart_items.each do |cart_item|
-      total_price += cart_item.quantity * cart_item.item.price
+      total_price += cart_item.count * cart_item.item.price_without_tax
     end
     return (total_price * 1.1).floor
   end
+
 end

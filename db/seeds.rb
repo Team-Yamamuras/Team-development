@@ -19,3 +19,5 @@ Category.create(category: "test")
         image: ActiveStorage::Blob.create_and_upload!(io: File.open(File.join(Rails.root,"app/assets/images/no_image.jpg")), filename:"no_image.jpg")
     )
 end
+
+
