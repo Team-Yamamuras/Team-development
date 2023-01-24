@@ -29,7 +29,7 @@
       <div class="row">
         <% @items.each do |item| %>
           <div class="col-3 mt-3">
-             <%= link_to items_path(item) do %>
+             <%= link_to item_path(item) do %>
                <%= image_tag item.image, size: "150x150", class: 'rounded' %>
              <% end %><br>
              <strong class="red-border"><%= item.name %></strong><br>
