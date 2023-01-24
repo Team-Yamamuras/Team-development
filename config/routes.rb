@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create, :index, :show]
     resources :items,only: [:index,:show]
     resources :shipping_addresses,only: [:index, :edit, :create, :update, :destroy]
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'cart_items_destroy_all'
+    resources :cart_items, only: [:index, :destroy, :create, :update]
   end
   #管理者側のルーティング設定
   namespace :admin do
