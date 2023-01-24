@@ -34,17 +34,13 @@ class Public::SessionsController < Devise::SessionsController
 protected
 
   def reject_customer
-  ## 【処理内容1】 入力されたemailからアカウントを1件取得
-  @customer = Customer.find_by(email: params[:customer][:email])
-  ## アカウントを取得できなかった場合、このメソッドを終了する
+    @customer = Customer.find_by(email: params[:customer][:email])
     return if !@customer
-  ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
-    if @customer.valid_password?(params[:customer][:password])
-  ## 【処理内容3】メッセージを表示し、新規登録画面へ
+    if @customer.valid_password?(params[:customer][:password])  && @customer.is_deleted
       flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
       redirect_to new_customer_session_path
     else
-        flash[:notice] = "ご登録をしてご利用ください"
+      customer_session_path
     end
   end
 
