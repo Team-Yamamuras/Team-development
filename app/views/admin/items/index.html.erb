@@ -3,7 +3,7 @@
     <h2>商品一覧画面</h2>
   </div>
   <div class= "row text-right">
-    <%= link_to "+", admin_items_new_path, class: "btn btn-lg rounded-circle text-right ml-auto shadow-sm" %>
+    <%= link_to "+", new_admin_item_path, class: "btn btn-lg rounded-circle text-right ml-auto shadow-sm" %>
   </div>
 
   <div class= "row mt-1">
@@ -24,7 +24,7 @@
           <td><%= link_to item.name, admin_items_path(item) %></td>
           <td><%= item.price_without_tax %></td>
           <td><%= item.category.name %></td>
-          <td><%= item.is_active</td>
+          <td><%= item.is_active %></td>
         </tr>
         <% end %>
       </tbody>
@@ -33,7 +33,7 @@
 <div class= "container">
   <div class= "row">
     <div class="col-md-4 offset-md-4 py-2  mt-5">
-      <%= pagenate @items %>
+      <%= paginater @items %>
     </div>
   </div>
 </div>
