@@ -11,16 +11,16 @@ class Public::OrdersController < ApplicationController
     @total_fee = 0
     @order.payment = params[:order][:payment]
     
-    if params[:order][:payment] == "0" # ご自身の住所 選択時
+    if params[:order][:address_number] == "0" # ご自身の住所 選択時
       @order.zip_code = current_customer.zip_code
       @order.address = current_customer.address
       @order.name = current_customer.first_name + current_customer.last_name
-    elsif params[:order][:payment] == "1" # 登録済住所から選択 選択時
+    elsif params[:order][:address_number] == "1" # 登録済住所から選択 選択時
       @address = Address.find(params[:order][:address_id])
       @order.zip_code = @address.zip_code
       @order.address = @address.address
       @order.name = @address.name
-    elsif params[:order][:payment] == "2" # 新しいお届け先 選択時
+    elsif params[:order][:address_number] == "2" # 新しいお届け先 選択時
        # @address = current_customer.addresses.new(address_params)
        # @address.customer_id = current_customer.id
        # @address.save
@@ -37,8 +37,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = current_customer.orders.new(order_params)
     @order.customer_id = current_customer.id
+    @order.postage = 800
     @order.save
     redirect_to orders_complete_path
   end
@@ -58,7 +59,11 @@ class Public::OrdersController < ApplicationController
   
   private
   def order_params
-    params.require(:order).permit(:zip_code, :address, :name)
+    params.require(:order).permit(:postage, :billing, :payment, :name, :zip_code, :address, :status)
+  end
+  
+  def address_params
+    params.require(:address).permit(:zip_code, :address, :name)
   end
 
 

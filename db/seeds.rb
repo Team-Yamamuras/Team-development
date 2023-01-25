@@ -20,6 +20,7 @@ Category.create(category: "test")
     )
 end
 
+
  Order.create(
     customer_id: 1,
     postage: 800,
@@ -37,4 +38,5 @@ order_id: 1,
 count: 2,
 price_tax_included: 220,
 status: 0,
+
     )
