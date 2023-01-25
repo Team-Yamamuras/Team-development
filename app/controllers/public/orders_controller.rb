@@ -28,7 +28,7 @@ class Public::OrdersController < ApplicationController
        @order.address = params[:order][:address]
        @order.name = params[:order][:name]
     else
-        @order.save
+        render 'new'
     end
   end
 
