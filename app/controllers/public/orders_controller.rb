@@ -28,7 +28,7 @@ class Public::OrdersController < ApplicationController
        @order.address = params[:order][:address]
        @order.name = params[:order][:name]
     else
-        render 'new'
+        @order.save
     end
   end
 
@@ -57,7 +57,9 @@ class Public::OrdersController < ApplicationController
   end
   
   private
-  def address_params
-    params.require(:address).permit(:zip_code, :address, :name)
+  def order_params
+    params.require(:order).permit(:zip_code, :address, :name)
   end
+
+
 end
