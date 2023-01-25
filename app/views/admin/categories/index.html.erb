@@ -6,17 +6,15 @@
 
 <%# ジャンル追加機能　%>
   <div class="row">
-    <table class="table col-sm-7 table-borderless">
-      <%= form_with model: Category.new, url: admin_categories_path, method: :post do |f| %>
+    <%= form_with model: Category.new, url: admin_categories_path, method: :post do |f| %>
+      <table class="table col-sm-7 table-borderless">
         <tr>
-          <th>
-            <th>ジャンル名</th>
-            <th><%= f.text_field :category %></th>
-            <th><%= f.submit '新規投稿', class: "btn btn-success" %><% end %></th>
-            </h6>
-          </th>
+            <td>ジャンル名</td>
+            <td><%= f.text_field :category %></td>
+            <td><%= f.submit '新規投稿', class: "btn btn-success" %></td>
         </tr>
-    </table>
+      </table>
+    <% end %>
   </div>
 
 <%# ジャンル一覧編集機能　%>

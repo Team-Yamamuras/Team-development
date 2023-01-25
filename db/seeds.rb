@@ -18,4 +18,10 @@ Category.create(category: "test")
         is_active: true,
         image: ActiveStorage::Blob.create_and_upload!(io: File.open(File.join(Rails.root,"app/assets/images/no_image.jpg")), filename:"no_image.jpg")
     )
+
+CartItem.create(
+    item_id: 9,
+    customer_id: 1,
+    count: 3
+    )
 end
