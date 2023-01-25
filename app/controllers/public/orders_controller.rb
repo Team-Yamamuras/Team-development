@@ -65,4 +65,6 @@ class Public::OrdersController < ApplicationController
   def address_params
     params.require(:address).permit(:zip_code, :address, :name)
   end
+
+
 end
