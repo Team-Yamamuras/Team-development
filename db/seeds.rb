@@ -20,4 +20,8 @@ Category.create(category: "test")
     )
 end
 
-
+CartItem.create(
+    item_id: 9,
+    customer_id: 1,
+    count: 3
+    )
