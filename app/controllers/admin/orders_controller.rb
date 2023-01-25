@@ -7,10 +7,8 @@ class Admin::OrdersController < ApplicationController
   
   def show
     @order = Order.find(params[:id])
-    @order_items = @order.order_items
+    @order_items = @order.ordered_items
     @customer = @order.customer
-    @total = 0
-    @shopping_cost = 800
   end
 
   def update

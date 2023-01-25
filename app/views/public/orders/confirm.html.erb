@@ -22,7 +22,7 @@
           <% current_customer.cart_items.each do |cart| %>
             <tr class="brown-border">
               <td>
-                <%= attachment_image_tag cart.item, :image, :size => '50x50',fallback: "no_image.jpg" %>
+                <%= image_tag cart.item.image, size: '50x50' %>
                 <span> </span>
                 <%= cart.item.name %>
               </td>
@@ -79,6 +79,7 @@
            <%= f.hidden_field :zip_code, :value => @order.zip_code %>
            <%= f.hidden_field :address, :value => @order.address %>
            <%= f.hidden_field :name, :value => @order.name %>
+           <%= f.hidden_field :postage, :value => @order.postage %>
         </span>
       </div>
     </div>
