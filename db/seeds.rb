@@ -20,7 +20,6 @@ Category.create(category: "test")
     )
 end
 
-
  Order.create(
     customer_id: 1,
     postage: 800,
@@ -31,4 +30,6 @@ end
     address: "東京",
     status: 0,
     )
+
+
 

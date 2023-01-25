@@ -3,24 +3,31 @@
     <h2>管理者トップページ</h2>
   </div>
 
-  <div class="row mt-5">
-    <div class="col-2">
-      <!-- <p>本日受注した注文件数</p> -->
-    </div>
-
-    <div class="col-3">
-      <!-- 表示件数 => 今日1日のデータ数をカウント -->
-    </div>
-  </div>
-
-  <div class="row mt-3">
-    <div class="col-sm-2">
-      <!-- <p>本日製作分の注文件数</p> -->
-    </div>
-
-    <div class="col-sm-3">
-      <!-- 表示件数 => 昨日1日のデータ数をカウント -->
-    </div>
-  </div>
-  
+  <h2 class="my-5">注文履歴一覧</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>購入日時</th>
+        <th>購入者</th>
+        <th>注文個数</th>
+        <th>注文ステータス</th>
+      </tr>   
+      </thead>
+      
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <td>
+            <%= link_to admin_orders_path(order) do%>
+              <!-- %= order.created_at.strftime("%Y-%m-%d %H:%M:%S")% -->
+            <% end %>
+          </td>
+          <td><!-- %= full_name(order.customer) % --></td>
+          <td><!-- %= order.order_details.count % --></td>
+          <td><%= order.status %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    
+  </table>
 </div>
