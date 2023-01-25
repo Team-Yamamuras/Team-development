@@ -21,10 +21,16 @@
         <% @items.each do |item| %>
         <tr>
           <td><%= item.id %></td>
-          <td><%= link_to item.name, admin_items_path(item) %></td>
+          <td><%= link_to item.name, admin_items_path(item.id) %></td>
           <td><%= item.price_without_tax %></td>
-          <td><%= item.category.name %></td>
-          <td><%= item.is_active %></td>
+          <td><%= item.category.category %></td>
+          <td>
+            <% if item.is_active %>
+              <p class="text-success">販売中</p>
+            <% else %>
+              <p class="text-danger">販売停止中</p>
+            <% end %>
+          </td>
         </tr>
         <% end %>
       </tbody>
