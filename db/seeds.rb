@@ -20,8 +20,15 @@ Category.create(category: "test")
     )
 end
 
-CartItem.create(
-    item_id: 9,
+
+ Order.create(
     customer_id: 1,
-    count: 3
+    postage: 800,
+    billing: 3000,
+    name: "サトウ",
+    payment: 0,
+    zip_code: 0000000,
+    address: "東京",
+    status: 0,
     )
+

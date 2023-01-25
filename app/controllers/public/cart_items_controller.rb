@@ -3,14 +3,23 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_items = current_customer.cart_items
-    @billing = calculate(current_customer)
   end
 
   def create
-   @cart_item = CartItem.new(cart_item_params)
-   @cart_item.customer_id = current_customer.id
-   @cart_item.save
-     redirect_to cart_items_path
+    @cart_item = current_customer.cart_items.new(cart_item_params)
+    @update_cart_item =  CartItem.find_by(item_id: @cart_item.item_id)
+    if @update_cart_item.present? && @cart_item.valid?
+        @cart_item.count += @update_cart_item.count
+        @update_cart_item.destroy
+    end
+
+    if @cart_item.save
+      redirect_to cart_items_path
+    else
+      @product = Product.find(params[:cart_item][:item_id])
+      @cart_item = CartItem.new
+      flash[:alert] = "個数を選択してください"
+    end
   end
 
   def update
