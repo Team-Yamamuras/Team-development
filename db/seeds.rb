@@ -20,16 +20,5 @@ Category.create(category: "test")
     )
 end
 
- Order.create(
-    customer_id: 1,
-    postage: 800,
-    billing: 3000,
-    name: "サトウ",
-    payment: 0,
-    zip_code: 0000000,
-    address: "東京",
-    status: 0,
-    )
 
-
-
+ 

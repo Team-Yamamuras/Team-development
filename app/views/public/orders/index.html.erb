@@ -1,10 +1,10 @@
 <div class="offset-2">
-  
+
   <div class="row mt-4">
     <mark class="h4 table-secondary">注文履歴一覧</mark>
   </div>
-  
-  <table class="table table-bordered">
+
+  <table class="table table-bordered col-10">
     <thead>
       <tr>
         <th class="table-secondary">注文日</th>
@@ -16,30 +16,26 @@
       </tr>
     </thead>
     <tbody>
-      <% @order.each do |t| %>
+      <% @orders.each do |order| %>
         <tr>
-          <td><%= t.created_at.strftime('%Y/%m/%d') %></td>
+          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
           <td>
-            〒<%= t.zip_code %><br>
-            <%= t.address %>
+            <p>〒<%= order.zip_code %></p>
+            <p><%= order.address %></p>
+            <p><%= order.name %></p>
           </td>
-          <td><%= t.count %></td>
-          <td></td>
-          <td></td>
-          <td><%= t.status %></td>
-          <td>
-            <%= link_to order_path(t.id) do %>
-              <%= t.created_at %>
-            <% end %>
+          <td><% order.ordered_items.each do |ordered_item| %>
+                <p><%= ordered_item.item.name  %></p>
+              <% end %>
           </td>
+          <td><%= order.billing %></td>
+          <td><%= order.status_i18n %></td>
           <td>
+            <%= link_to "注文詳細", order_path(order), class: "btn btn-primary" %>
+          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  
-  <div class="row">
-    <%= paginate @customers %>
-  </div>
-  
+  <div class="text-center"><%= paginate(@orders) %></div>
 </div>
