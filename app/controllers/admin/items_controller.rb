@@ -20,7 +20,7 @@ class Admin::ItemsController < ApplicationController
       redirect_to admin_items_path
     else
       flash[:item_created_error] = "商品情報が保存されませんでした"
-      redirect_to admin_items_new_path
+      redirect_to new_admin_item_path
     end
   end
 
