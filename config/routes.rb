@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   #管理者側のルーティング設定
   namespace :admin do
     root 'homes#top'
-    resources :items,only: [:new,:index,:show,:edit,:update]
+    resources :items,only: [:new,:index,:show,:create,:edit,:update]
     resources :categories,only: [:index,:create,:edit,:update]
     resources :customers,only: [:index,:show,:edit,:update]
     resources :orders,only: [:index,:show,:update]
