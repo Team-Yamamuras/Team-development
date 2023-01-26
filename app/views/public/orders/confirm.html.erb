@@ -43,15 +43,15 @@
         <tbody>
           <tr class="brown-border">
             <td class="table-active" style="width: 50%">送料</td>
-            <td style="width: 50%"><%= @order.postage %></td>
+            <td style="width: 50%"><%= @order.postage.to_s(:delimited) %></td>
           </tr>
           <tr class="brown-border">
             <td class="table-active">商品合計</td>
-            <td><%= @total_fee %></td>
+            <td><%= @total_fee.to_s(:delimited) %></td>
           </tr>
           <tr class="brown-border">
             <td class="table-active">請求金額</td>
-            <td><%= @total_fee + @order.postage %></td>
+            <td><%= (@total_fee + @order.postage).to_s(:delimited) %></td>
           </tr>
         </tbody>
       </table>

@@ -21,9 +21,14 @@
           <span class="red-border px-3"><%= item.name %></span>
         </div>
         <div class="row mt-1">
-          <span class="offset-8"><%= (item.price_without_tax * 1.1).floor %> 円</span>
+          <span class="offset-8"><%= (item.price_without_tax * 1.1).floor.to_s(:delimited)  %> 円</span>
         </div>
       </div>
     <% end %>
   </div>
+</div>
+
+<div class="row">
+  <div class="col-10"></div>
+  <div class="col-2"><%= link_to "全ての商品を見る>", items_path %></div>
 </div>
