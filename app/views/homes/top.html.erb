@@ -15,7 +15,7 @@
     <% @items.last(4).each do |item| %>
       <div class="mx-auto">
         <%= link_to item_path(item) do %>
-          <%= image_tag item.image, size: "150x150", class: 'rounded' %>
+            <%= image_tag item.image, size: "150x150", class: 'rounded' %>
         <% end %>
         <div class="row mt-3">
           <span class="red-border px-3"><%= item.name %></span>
