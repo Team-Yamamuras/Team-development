@@ -31,7 +31,7 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-       redirect_to admin_items_path(@item)
+       redirect_to admin_item_path(@item)
     else
        flash[:item_updated_error] = "商品情報が保存されませんでした"
        redirect_to admin_items_edit_path(@item)
