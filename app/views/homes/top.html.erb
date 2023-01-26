@@ -1,0 +1,34 @@
+    <div class="top">
+      <p class="fs-1"><strong>ようこそ、ながのCAKEへ！</strong><br>
+      このサイトは、ケーキ販売のECサイトになります<br>
+      会員でない方も商品の閲覧は出来ますが、<br>
+      購入には会員登録が必要になります</p>
+    </div>
+
+
+<div class="container my-5">
+  <div class="row">
+      <h3 class="red-border px-3 pb-1">新商品</h3>
+  </div>
+
+  <div class="row mx-auto mt-3">
+    <% @items.last(4).each do |item| %>
+      <div class="mx-auto">
+        <%= link_to item_path(item) do %>
+          <%= image_tag item.image, size: "150x150", class: 'rounded' %>
+        <% end %>
+        <div class="row mt-3">
+          <span class="red-border px-3"><%= item.name %></span>
+        </div>
+        <div class="row mt-1">
+          <span class="offset-8"><%= (item.price_without_tax * 1.1).floor.to_s(:delimited)  %> 円</span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-10"></div>
+  <div class="col-2"><%= link_to "全ての商品を見る>", items_path %></div>
+</div>

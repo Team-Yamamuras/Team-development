@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WorkGithub</title>
+    <title>NAGANO CAKE</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <%= yield %>
+    <% if admin_signed_in? %>
+      <%= render 'layouts/admin_header' %>
+    <% else %>
+      <%= render 'layouts/customers_header' %>
+    <% end %>
+    <main>
+      <%= yield %>
+    </main>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

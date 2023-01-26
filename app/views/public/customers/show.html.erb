@@ -1,0 +1,66 @@
+<div class="offset-2">
+  <div class="row mt-4">
+    <mark class="h4 table-secondary">マイページ</mark>
+  </div>
+
+  <div class="row">
+    <table width="300">
+      <tr>
+        <td><h4><strong>登録情報</strong></h4></td>
+        <th><%= link_to "編集する", customers_infomation_edit_path, class: 'btn btn-success ' %></th>
+      </tr>
+    </table>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-xs-offset-1">
+      <table class="table table-bordered table-condensed" >
+        <tbody>
+          <tr>
+            <td class="info table-secondary border-">氏名</td>
+            <td class="text-left"><%= @customer.first_name %> <%= @customer.last_name %></td>
+          </tr>
+          <tr>
+            <td class="info table-secondary">カナ</td>
+            <td class="text-left"><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
+          </tr>
+          <tr>
+            <td class="info table-secondary">郵便番号</td>
+            <td class="text-left"><%= @customer.zip_code %></td>
+          </tr>
+          <tr>
+            <td class="info table-secondary">住所</td>
+            <td class="text-left"><%= @customer.address %></td>
+          </tr>
+          <tr>
+            <td class="info table-secondary">電話番号</td>
+            <td class="text-left"><%= @customer.phone_number %></td>
+          </tr>
+          <tr>
+            <td class="info table-secondary">メールアドレス</td>
+            <td class="text-left"><%= @customer.email %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <table width="300" height="100">
+      <tr>
+        <td><h4><strong>配送先</strong></h4></td>
+         <th><%= link_to "一覧を見る", shipping_addresses_path, class: "btn btn-primary" %></th>
+      </tr>
+    </table>
+  </div>
+
+  <div class="row">
+    <table width="300" height="100">
+      <tr>
+        <td><h4><strong>注文履歴</strong></h4></td>
+        <th><%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %></th>
+      </tr>
+    </table>
+  </div>
+
+</div>

@@ -1,0 +1,49 @@
+<div class="offset-2">
+
+  <div class="row mt-4">
+    <mark class="h4 table-secondary">注文履歴一覧</mark>
+  </div>
+
+  <table class="table table-bordered col-10">
+    <thead>
+      <tr>
+        <th class="table-secondary">注文日</th>
+        <th class="table-secondary">配送先</th>
+        <th class="table-secondary">注文商品</th>
+        <th class="table-secondary">支払金額</th>
+        <th class="table-secondary">ステータス</th>
+        <th class="table-secondary">注文詳細</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+          <td>
+            <p>〒<%= order.zip_code %></p>
+            <p><%= order.address %></p>
+            <p><%= order.name %></p>
+          </td>
+          <td><% order.ordered_items.each do |ordered_item| %>
+                <p><%= ordered_item.item.name  %></p>
+              <% end %>
+          </td>
+          <td><%= order.billing %></td>
+          <td><%= order.status_i18n %></td>
+          <td>
+            <%= link_to "注文詳細", order_path(order), class: "btn btn-primary" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <div class= "container" >
+    <div class= "row" >
+      <div class= "col-8 offset-md-4 py-2 mt-5" >
+        <%= paginate @orders %>
+      </div>
+    </div>
+  </div>
+</div>
+
