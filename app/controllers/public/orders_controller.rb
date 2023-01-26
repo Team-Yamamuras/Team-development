@@ -16,7 +16,7 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.name = current_customer.first_name + current_customer.last_name
     elsif params[:order][:address_number] == "1" # 登録済住所から選択 選択時
-      @address = Address.find(params[:order][:address_id])
+      @address = ShippingAddress.find(params[:order][:address_id])
       @order.zip_code = @address.zip_code
       @order.address = @address.address
       @order.name = @address.name
@@ -28,7 +28,7 @@ class Public::OrdersController < ApplicationController
        @order.address = params[:order][:address]
        @order.name = params[:order][:name]
     else
-        render 'new'
+      render 'new'
     end
       @order.billing = @total_fee
   end

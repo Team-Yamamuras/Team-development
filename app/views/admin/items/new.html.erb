@@ -5,17 +5,13 @@
 
   <div class= "row d-flex justify-content-center">
     <% if flash[:item_created_error] %>
-<<<<<<< HEAD
-      <span class= "text-danger"><% flash[:item_created_error] %></span>
-=======
       <span class= "text-danger"><% if flash[:item_created_error] %><% end %></span>
->>>>>>> origin/develop
     <% end %>
   </div>
 
 <%= form_for(@item,url:admin_items_path) do |f| %>
-　  <div class= "row mt-5" >
-　    <div class= "col-sm-4">
+
+　    <div class= "col-3">
 　      <%= f.label :商品画像 %>
 　      <%= f.file_field :image, accept: "image/*" %>
 　    </div>
