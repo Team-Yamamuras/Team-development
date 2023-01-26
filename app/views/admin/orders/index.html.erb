@@ -33,8 +33,15 @@
         </tr>
       <% end %>
     </tbody>
-    <div class="row text-center"><%= paginate(@orders) %></div>
   </table>
- 
+  
+  <div class= "container" >
+    <div class= "row" >
+      <div class= "col-4 offset-md-4 py-2 mt-5" >
+        <%= paginate @orders %>
+      </div>
+    </div>
+  </div>
+  
+  
 </div>
- 
