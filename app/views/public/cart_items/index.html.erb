@@ -11,9 +11,9 @@
 
     <div class="row mt-5">
       <div class="offset-1 col-9">
-        <table class="table table-borderless">
+        <table class="table table-bordered">
           <thead>
-            <tr class="red-border">
+            <tr class="thead-light">
               <th>商品名</th>
               <th>単価(税込)</th>
               <th>数量</th>
@@ -30,7 +30,7 @@
                   <%#= attachment_image_tag cart_item.item, :image, size: "50x50", fallback: "no_image.jpg" %>
                   <span><%= cart_item.item.name %></span>
                 </td>
-                <td class="align-middle"><%= (cart_item.item.price_without_tax * 1.1).floor %></td>
+                <td class="align-middle"><%= (cart_item.item.price_without_tax * 1.1).floor.to_s(:delimited) %></td>
                 <td class="align-middle" style="width: 130px;">
                   <%= form_for(cart_item) do |f| %>
                   <div class="row">
@@ -55,9 +55,14 @@
     </div>
 
       <div class="row my-3">
-        <div class="offset-9">
-          <strong class="red-border px-3 pb-1">合計金額 <%= @total_price %>円</strong>
-        </div>
+        <table class="table table-bordered offset-9">
+          <tbody>
+            <tr class="brown-border">
+              <td class="table-active" style="width: 50%">合計金額</td>
+              <td style="width: 50%"><%= @total_price.to_s(:delimited) %>円</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
     <div class="row">
