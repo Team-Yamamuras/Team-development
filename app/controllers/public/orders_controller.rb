@@ -28,7 +28,7 @@ class Public::OrdersController < ApplicationController
        @order.address = params[:order][:address]
        @order.name = params[:order][:name]
     else
-        render 'new'
+      render 'new'
     end
       @order.billing = @total_fee
   end
