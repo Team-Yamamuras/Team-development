@@ -39,12 +39,12 @@
                   </div>
                   <% end %>
                 </td>
-                
+
                 <td class="align-middle">
                   <% @subtotal = 0 %>
                   <%= @subtotal = (cart_item.item.price_without_tax * 1.1).floor * cart_item.count %>
                 </td>
-                
+
                 <td class="align-middle"><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-sm btn-danger" %></td>
               </tr>
             </tbody>
